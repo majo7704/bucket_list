@@ -1,3 +1,6 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 
 /**
@@ -11,45 +14,20 @@
    ========================================================================== */
 
 html {
-  font-family: sans-serif; /* 1 */
-  line-height: 1.15; /* 2 */
-  -ms-text-size-adjust: 100%; /* 3 */
-  -webkit-text-size-adjust: 100%; /* 3 */
+  font-family: sans-serif;
+  /* 1 */
+  line-height: 1.15;
+  /* 2 */
+  -ms-text-size-adjust: 100%;
+  /* 3 */
+  -webkit-text-size-adjust: 100%;
+  /* 3 */
 }
 
-/* Sections
-   ========================================================================== */
-
-/**
- * Remove the margin in all browsers (opinionated).
- */
-
-body {
-  margin: 0;
-}
-
-/**
- * Add the correct display in IE 9-.
- */
-
-article,
-aside,
-footer,
-header,
-nav,
-section {
-  display: block;
-}
-
-/**
- * Correct the font size and margin on `h1` elements within `section` and
- * `article` contexts in Chrome, Firefox, and Safari.
- */
-
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
+@import 'sections';
+@import 'header';
+@import 'footer';
+@import 'navigation';
 
 /* Grouping content
    ========================================================================== */
@@ -61,7 +39,8 @@ h1 {
 
 figcaption,
 figure,
-main { /* 1 */
+main {
+  /* 1 */
   display: block;
 }
 
@@ -79,9 +58,12 @@ figure {
  */
 
 hr {
-  box-sizing: content-box; /* 1 */
-  height: 0; /* 1 */
-  overflow: visible; /* 2 */
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */
 }
 
 /**
@@ -90,8 +72,10 @@ hr {
  */
 
 pre {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
 }
 
 /* Text-level semantics
@@ -103,8 +87,10 @@ pre {
  */
 
 a {
-  background-color: transparent; /* 1 */
-  -webkit-text-decoration-skip: objects; /* 2 */
+  background-color: transparent;
+  /* 1 */
+  -webkit-text-decoration-skip: objects;
+  /* 2 */
 }
 
 /**
@@ -123,9 +109,12 @@ a:hover {
  */
 
 abbr[title] {
-  border-bottom: none; /* 1 */
-  text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */
 }
 
 /**
@@ -154,8 +143,10 @@ strong {
 code,
 kbd,
 samp {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
 }
 
 /**
@@ -254,10 +245,14 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: sans-serif; /* 1 */
-  font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
-  margin: 0; /* 2 */
+  font-family: sans-serif;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
+  margin: 0;
+  /* 2 */
 }
 
 /**
@@ -266,7 +261,8 @@ textarea {
  */
 
 button,
-input { /* 1 */
+input {
+  /* 1 */
   overflow: visible;
 }
 
@@ -276,7 +272,8 @@ input { /* 1 */
  */
 
 button,
-select { /* 1 */
+select {
+  /* 1 */
   text-transform: none;
 }
 
@@ -287,10 +284,12 @@ select { /* 1 */
  */
 
 button,
-html [type="button"], /* 1 */
+html [type="button"],
+/* 1 */
 [type="reset"],
 [type="submit"] {
-  -webkit-appearance: button; /* 2 */
+  -webkit-appearance: button;
+  /* 2 */
 }
 
 /**
@@ -298,9 +297,9 @@ html [type="button"], /* 1 */
  */
 
 button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -310,9 +309,9 @@ button::-moz-focus-inner,
  */
 
 button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
+[type='button']:-moz-focusring,
+[type='reset']:-moz-focusring,
+[type='submit']:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -334,12 +333,18 @@ fieldset {
  */
 
 legend {
-  box-sizing: border-box; /* 1 */
-  color: inherit; /* 2 */
-  display: table; /* 1 */
-  max-width: 100%; /* 1 */
-  padding: 0; /* 3 */
-  white-space: normal; /* 1 */
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */
 }
 
 /**
@@ -348,8 +353,10 @@ legend {
  */
 
 progress {
-  display: inline-block; /* 1 */
-  vertical-align: baseline; /* 2 */
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */
 }
 
 /**
@@ -365,18 +372,20 @@ textarea {
  * 2. Remove the padding in IE 10-.
  */
 
-[type="checkbox"],
-[type="radio"] {
-  box-sizing: border-box; /* 1 */
-  padding: 0; /* 2 */
+[type='checkbox'],
+[type='radio'] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
 }
 
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
 
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -385,17 +394,19 @@ textarea {
  * 2. Correct the outline style in Safari.
  */
 
-[type="search"] {
-  -webkit-appearance: textfield; /* 1 */
-  outline-offset: -2px; /* 2 */
+[type='search'] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
 }
 
 /**
  * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
  */
 
-[type="search"]::-webkit-search-cancel-button,
-[type="search"]::-webkit-search-decoration {
+[type='search']::-webkit-search-cancel-button,
+[type='search']::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -405,8 +416,10 @@ textarea {
  */
 
 ::-webkit-file-upload-button {
-  -webkit-appearance: button; /* 1 */
-  font: inherit; /* 2 */
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
 }
 
 /* Interactive
@@ -417,7 +430,8 @@ textarea {
  * 1. Add the correct display in Edge, IE, and Firefox.
  */
 
-details, /* 1 */
+details,
+/* 1 */
 menu {
   display: block;
 }
@@ -472,10 +486,10 @@ template {
  * Base styles; unclassed HTML elements etc.
  */
 
-
 html {
   font-family: 'Rubik', helvetica, arial, sans-serif;
-  font-size: 62.5%; /* Reset to 10px for easier math on em and rem */
+  font-size: 62.5%;
+  /* Reset to 10px for easier math on em and rem */
   line-height: 1.6;
   background: #fff;
   color: #72797e;
@@ -508,7 +522,9 @@ a:focus {
 }
 
 /* Stop Safari Mobile from giving input rounded corners */
-input, textarea {
+input,
+textarea {
+  border-radius: 0;
   -webkit-appearance: none;
   -webkit-border-radius: 0;
 }
@@ -516,7 +532,6 @@ input, textarea {
 /* ==========================================================================
    HELPERS
    ========================================================================== */
-
 
 /**
  *  Hide from screen, keep readable for screen readers
@@ -528,7 +543,7 @@ input, textarea {
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0,0,0,0);
+  clip: rect(0, 0, 0, 0);
   border: 0;
 }
 
@@ -536,9 +551,17 @@ input, textarea {
  *  Text alignment
  */
 
-.text--left   { text-align: left  ; }
-.text--center { text-align: center; }
-.text--right  { text-align: right ; }
+.text--left {
+  text-align: left;
+}
+
+.text--center {
+  text-align: center;
+}
+
+.text--right {
+  text-align: right;
+}
 
 /**
  *  Horisontal ruler
@@ -562,7 +585,12 @@ input, textarea {
  * heading hierarchy.
  */
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   /* Using em for margin keeps it relative to each header's fontsize. */
   margin: 0 0 0.5em 0;
   padding: 0;
@@ -589,7 +617,7 @@ h2,
 
 h3,
 .gamma {
-  font-size:28px;
+  font-size: 28px;
   font-size: 2.8rem;
   line-height: 1.2;
   color: #192127;
@@ -602,7 +630,7 @@ th {
   font-size: 13px;
   font-size: 1.3rem;
   line-height: 1.5;
-  color: #72797E;
+  color: #72797e;
   text-transform: uppercase;
   text-align: left;
 }
@@ -640,24 +668,44 @@ h6,
    COLOURS
    ========================================================================== */
 
+[data-bgColor='blue'] {
+  background-color: #2c9cf2;
+}
 
-[data-bgColor="blue"]     { background-color: #2c9cf2 }
-[data-bgColor="black"]    { background-color: #192127 }
-[data-bgColor="darkest"]  { background-color: #72797e }
-[data-bgColor="dark"]     { background-color: #afbac4 }
-[data-bgColor="gray"]     { background-color: #bbc1c6 }
-[data-bgColor="light"]    { background-color: #e3e5e9 }
-[data-bgColor="lightest"] { background-color: #f7f9fc }
-[data-bgColor="red"]      { background-color: #e25d43 }
+[data-bgColor='black'] {
+  background-color: #192127;
+}
 
+[data-bgColor='darkest'] {
+  background-color: #72797e;
+}
 
+[data-bgColor='dark'] {
+  background-color: #afbac4;
+}
+
+[data-bgColor='gray'] {
+  background-color: #bbc1c6;
+}
+
+[data-bgColor='light'] {
+  background-color: #e3e5e9;
+}
+
+[data-bgColor='lightest'] {
+  background-color: #f7f9fc;
+}
+
+[data-bgColor='red'] {
+  background-color: #e25d43;
+}
 
 /* ==========================================================================
    BUTTONS
    ========================================================================== */
 
-
-.btn, .card__btn {
+.btn,
+.card__btn {
   font-size: 13px;
   font-size: 1.3rem;
   text-decoration: none;
@@ -668,7 +716,7 @@ h6,
   border: 1px solid #e3e5e9;
   border-radius: 3px;
   cursor: pointer;
-  transition: all 0.10s ease-in-out;
+  transition: all 0.1s ease-in-out;
   display: flex;
   align-items: center;
 }
@@ -684,7 +732,8 @@ h6,
 /**
  * Remove the inner border and padding in Firefox.
  */
-.btn::-moz-focus-inner, .card__btn::-moz-focus-inner {
+.btn::-moz-focus-inner,
+.card__btn::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -751,7 +800,7 @@ h6,
   border-top: 5px solid #2c9cf2;
   position: absolute;
   left: 0;
-  top: .5em;
+  top: 0.5em;
 }
 
 /* ==========================================================================
@@ -765,7 +814,7 @@ h6,
 /* Pairs of label + input (+ btn) are wrapped in .input-group */
 .input-group__label {
   display: inline-block;
-  margin: 0 0 .5em;
+  margin: 0 0 0.5em;
   cursor: pointer;
 }
 
@@ -779,16 +828,16 @@ h6,
   box-sizing: border-box;
 }
 
-.input-group__field:not([type="file"]) {
+.input-group__field:not([type='file']) {
   background-color: #fff;
   border: 1px solid #e3e5e9;
-  box-shadow: 0 0 20px rgba(0,0,0,0.14);
-  transition: all 0.15s cubic-bezier(.44,-0.44,.44,1.66);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.14);
+  transition: all 0.15s cubic-bezier(0.44, -0.44, 0.44, 1.66);
 }
 
 .input-group__field:focus {
   border-color: #72797e;
-  box-shadow: 0 0 20px rgba(0,0,0,0.35);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
 }
 
 .input-group textarea {
@@ -806,7 +855,8 @@ h6,
   .input-group--horizontal .input-group__label,
   .input-group--horizontal > .field_with_errors {
     flex: 0 1 20%;
-    margin-top: 1.25rem; /* Value found by testing in the web inspector. Aligns with placeholder text in input field. */
+    margin-top: 1.25rem;
+    /* Value found by testing in the web inspector. Aligns with placeholder text in input field. */
   }
 
   .input-group--horizontal .input-group__field,
@@ -819,7 +869,6 @@ h6,
     }
   }
 }
-
 
 /* Input Row "attaches" the button to the end of the input field */
 .input-row {
@@ -893,7 +942,8 @@ h6,
 .horizontal-list {
   list-style-type: none;
   padding: 0;
-  overflow: hidden; /* To avoid float collapse from list items */
+  overflow: hidden;
+  /* To avoid float collapse from list items */
 }
 
 .horizontal-list > li {
@@ -925,7 +975,8 @@ h6,
 .float-grid > li {
   float: left;
   margin: 0 1.6rem 3.2rem;
-  width: 298px; /* Value that allows for 3 items at full width */
+  width: 298px;
+  /* Value that allows for 3 items at full width */
 }
 
 /* Grid with Flexbox
@@ -961,7 +1012,6 @@ h6,
     /* Cancel rules from float layout  */
     margin: 0 0 6.4rem;
     overflow: visible;
-
   }
 
   /* Cancel out rules from float layout  */
@@ -986,67 +1036,18 @@ table {
 }
 
 .table--lines td {
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
 .table--lines tr {
   border-bottom: 1px solid #e3e5e9;
 }
 
-/* ==========================================================================
-   NAVIGATION
-   ========================================================================== */
-
-/* Main navigation
-   ========================================================================== */
-/*ul*/.main-navigation {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.main-navigation li {
-  display: inline-block;
-}
-
-.main-navigation a {
-  color: #192127;
-  display: inline-block;
-  padding: 1.3rem 0.75rem;
-}
-
-/* Subnavigation
-   ========================================================================== */
-
-/*ul*/.sub-navigation {
-  list-style-type: none;
-  padding: 0;
-  margin: 0 0 3.2rem;
-  border-bottom: 1px solid #e3e5e9;
-}
-
-.sub-navigation li {
-  display: inline-block;
-}
-
-.sub-navigation a {
-  display: inline-block;
-  padding: 1.6rem 0.8rem;
-  border-bottom: 2px solid #fff;
-}
-
-.sub-navigation a:hover,
-.sub-navigation a:focus,
-.sub-navigation a.current {
-  border-bottom-color: #192127;
-  color: #192127;
-  text-decoration: none;
-}
-
 /* Ordered navigation
    ========================================================================== */
 
-/*ol*/.ordered-navigation {
+/*ol*/
+.ordered-navigation {
   color: #2c9cf2;
   list-style-position: inside;
   padding: 0;
@@ -1071,7 +1072,7 @@ table {
   display: inline-block;
   /* Include bottom-margin for when they stack on long lists
       or narrow screens. */
-  margin: 0 .6rem .6rem 0;
+  margin: 0 0.6rem 0.6rem 0;
   padding: 0;
 }
 
@@ -1080,13 +1081,13 @@ table {
   background-color: #e3e5e9;
   color: #72797e;
   font-size: 1.1rem;
-  padding: .3rem 1rem;
+  padding: 0.3rem 1rem;
   position: relative;
   text-transform: uppercase;
 }
 
 .tags-list a.selected {
-  padding: .3rem 2.6rem .3rem 1rem;
+  padding: 0.3rem 2.6rem 0.3rem 1rem;
 }
 
 .tags-list a:hover,
@@ -1107,13 +1108,14 @@ table {
   color: #fff;
   background-color: #72797e;
   font-size: 1.1rem;
-  padding: .3rem 1rem;
+  padding: 0.3rem 1rem;
   margin: 0 0.3rem;
   position: relative;
   text-transform: uppercase;
 }
 
-/* i */.remove-tag {
+/* i */
+.remove-tag {
   color: #bbc1c6;
   display: block;
   font-style: normal;
@@ -1171,7 +1173,7 @@ table {
    LAYOUT
    ========================================================================== */
 
- /* Center page contents
+/* Center page contents
     ========================================================================== */
 
 .content-wrapper {
@@ -1197,7 +1199,7 @@ table {
   max-width: 35em;
   background: #fff;
   border-radius: 3px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.14);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.14);
   margin: 0 auto 6.4rem auto;
 }
 
@@ -1223,8 +1225,6 @@ table {
   padding: 0.6rem 0 0;
   margin: 0 0 3.2rem 0;
 }
-
-
 
 /* Media queries
    ========================================================================== */
@@ -1252,6 +1252,7 @@ table {
     font-size: 4rem;
     text-align: center;
   }
+
   .masthead .input-inline {
     max-width: 80%;
     margin: 0 auto;
@@ -1264,6 +1265,7 @@ table {
     font-size: 48px;
     font-size: 4.8rem;
   }
+
   .masthead .input-inline {
     max-width: 60%;
   }
@@ -1272,7 +1274,8 @@ table {
 /* Full page background image
    ========================================================================== */
 .full-bleed {
-  background: #72797e url(../images/mountains-forests.jpg) no-repeat center center fixed;
+  background: #72797e url(../images/mountains-forests.jpg) no-repeat center
+    center fixed;
   background-size: cover;
 }
 
@@ -1280,50 +1283,11 @@ table {
   padding: 3.2rem 0 6.4rem 0;
 }
 
-/* ==========================================================================
-   GLOBAL HEADER
-   ========================================================================== */
-
-.site-header {
-  border-bottom: 1px solid #e3e5e9;
-  margin: 0 0 6.4rem 0;
-}
-
-.site-header .content-wrapper {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.site-header .logo {
-  /* Margin equals Search margin + Nav padding */
-  margin: 0 1.55rem 0 0;
-}
-
-.site-header .global-search {
-  flex: 1 0 auto;
-  margin: 0 0.8rem -1px 0;
-}
-
-.site-header .input-row__field {
-  border-color: #2c9cf2;
-}
-
-.site-header .input-row__field:focus {
-  border-color: hsl(212, 64%, 36%);
-}
-
-/* Avoid line-break of navigation */
-.site-header__nav {
-  flex-shrink: 0;
-}
-
-
 /* Masthead
    ========================================================================== */
 
 .masthead {
-  background: #afbac4 url('../images/mountain-lake.jpg') no-repeat 50% 50% / cover;
+  background: #afbac4 asset-url('mountain-lake.jpg') no-repeat 50% 50% / cover;
   border-bottom: 1px solid #e3e5e9;
   padding: 1.6rem 0;
   margin: 0 0 6.4rem;
@@ -1346,17 +1310,18 @@ table {
  * need it.
  */
 
-
 /* If screen medium width - over 540px wide */
 @media screen and (min-width: 540px) {
   .masthead {
     padding: 6.4rem 0;
   }
+
   .masthead h1 {
     font-size: 40px;
     font-size: 4rem;
     text-align: center;
   }
+
   .masthead .input-inline {
     max-width: 80%;
     margin: 0 auto;
@@ -1368,21 +1333,23 @@ table {
   .masthead {
     padding: 12.8rem 0 16rem;
   }
+
   .masthead h1 {
     font-size: 48px;
     font-size: 4.8rem;
   }
+
   .masthead .input-inline {
     max-width: 60%;
   }
 }
 
-
 /* Homepage banner
    ========================================================================== */
 .banner {
   /* Use short-hand for the background properties */
-  background: #afbac4 url(../images/mountain-lake.jpg) no-repeat 50% 0% / auto 787px;
+  background: #afbac4 url(../images/mountain-lake.jpg) no-repeat 50% 0% / auto
+    787px;
   padding: 0;
   margin: 0;
 }
@@ -1414,50 +1381,6 @@ table {
 }
 
 /* ==========================================================================
-   GLOBAL FOOTER
-   ========================================================================== */
-
-.site-footer {
-  background-color: #192127;
-  color: #bbc1c6;
-  box-sizing: border-box;
-  padding: 6.4rem 0 4.8rem;
-  margin-top: auto;
-}
-
-.site-footer > .content-wrapper {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.footer__logo {
-  margin: 0 1.6rem 1.6rem 0;
-}
-
-.footer__navigation {
-  flex-grow: 1;
-  flex-shrink: 0;
-  margin: 0 auto 1.6rem 0;
-}
-
-.footer__navigation ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer__navigation li {
-  display: inline-table;
-  margin: 0 1.6rem 0 0;
-}
-
-
-.footer__navigation a {
-  color: #e3e5e9;
-}
-
-/* ==========================================================================
    PAGE HEADER
    ========================================================================== */
 .page-header {
@@ -1476,14 +1399,14 @@ table {
    ========================================================================== */
 
 .card {
-  box-shadow: 0 0 20px rgba(0,0,0,0.14);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.14);
   border-radius: 3px;
   margin: 0;
   transition: all 0.1s ease-in-out;
 }
 
 .card:hover {
-  box-shadow: 0 5px 20px rgba(0,0,0,0.35);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.35);
 }
 
 .card__thumb {
@@ -1566,7 +1489,8 @@ table {
   margin: 0;
 }
 
-.card .btn, .card .card__btn {
+.card .btn,
+.card .card__btn {
   border: none;
   border-radius: 0;
   text-transform: uppercase;
@@ -1596,7 +1520,7 @@ table {
   font-size: 13px;
   font-size: 1.3rem;
   line-height: 1.5;
-  color: #72797E;
+  color: #72797e;
   text-transform: uppercase;
   text-align: left;
 }
@@ -1607,7 +1531,6 @@ table {
   align-items: center;
 }
 
-
 /* ==========================================================================
    ICONS
    ========================================================================== */
@@ -1617,7 +1540,7 @@ table {
 .icon-check,
 .icon-delete,
 .icon-edit {
-  fill: #72797E;
+  fill: #72797e;
   width: 24px;
   height: 24px;
   margin-right: 5px;
@@ -1702,7 +1625,7 @@ table {
   float: left;
   width: 20px;
   height: 20px;
-  margin-right: .5em;
+  margin-right: 0.5em;
 }
 
 .goal__meta {
@@ -1714,7 +1637,7 @@ table {
 
 .goal__meta span:not(:last-child)::after {
   content: '|';
-  padding: 0 .5em;
+  padding: 0 0.5em;
 }
 
 /* ==========================================================================
