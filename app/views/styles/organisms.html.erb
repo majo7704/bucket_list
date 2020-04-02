@@ -2,9 +2,9 @@
     <div>
       <nav>
         <ul class="sub-navigation">
-          <li><a href="atoms.html">Atoms</a></li>
-          <li><a href="molecules.html">Molecules</a></li>
-          <li><a href="organisms.html" class="current">Organisms</a></li>
+          <li><%= link_to("Atoms", "/styles/atoms") %></li>
+          <li><%= link_to("Molecules", "/styles/molecules") %></li>
+          <li><%= link_to("Organisms", "/styles/organisms") %></li>
           <li><a href="templates.html">Templates</a></li>
           <li><a href="#pages">Pages</a></li>
         </ul>
@@ -61,16 +61,16 @@
       <div>
         <ul class="bare-list float-grid css-grid">
           <li>
-            <%= render(partial: 'idea_card') %>
+            <%= render(partial: 'idea_card', locals:{card_title:'See the Northern Lights'}) %>
           </li>
           <li>
-            <%= render(partial: 'idea_card') %>
+            <%= render(partial: 'idea_card', locals:{card_title:'Swim with Dolphines'}) %>
           </li>
           <li>
-            <%= render(partial: 'idea_card') %>
+            <%= render(partial: 'idea_card', locals:{card_title:'Drive a Sport Car'}) %>
           </li>
           <li>
-            <%= render(partial: 'idea_card') %>
+            <%= render(partial: 'idea_card', locals:{card_title:'Dance like there is no tomorrow'}) %>
           </li>
         </ul>
       </div>
@@ -101,9 +101,7 @@
             <label class="input-group__label" for="goal-description">Description</label>
             <textarea id="goal-description" class="input-group__field"></textarea>
           </div>
-          <div class="prompt">
-            <a class="prompt__cancel" href="#cancel">Cancel</a>
-            <button class="btn btn--primary prompt__confirm" type="submit">Create Goal</button>
+          <%= render(partial: 'prompt', locals: {label: "Create a Goal"}) %>
           </div>
         </form>
       </div>
@@ -129,10 +127,8 @@
             <label class="input-group__label" for="profile-description">Description</label>
             <textarea id="profile-description" class="input-group__field"></textarea>
           </div>
-          <div class="prompt">
-            <a class="prompt__cancel" href="#cancel">Cancel</a>
-            <button class="btn btn--primary prompt__confirm" type="submit">Update profile</button>
-          </div>
+          <%= render(partial: 'prompt', locals: {label: "Update profile"}) %>
+          
         </form>
       </div>
     </section>
@@ -158,6 +154,7 @@
               <input id="password" class="input-group__field" type="password" name="password">
             </div>
             <p><a href="forgot-password.html">Forgot password?</a></p>
+            
             <div class="prompt">
               <button class="btn btn--primary prompt__confirm" type="submit">Log in</button>
             </div>

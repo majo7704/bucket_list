@@ -36,7 +36,7 @@
     </div>
     <section class="sg-section" id="card">
       <h2>01. Card</h2>
-      <%= render(partial: 'idea_card') %>
+      <%= render(partial: 'idea_card', locals:{card_title:'Watch the Northern Lights'}) %>
     </section>
     <section class="sg-section" id="logo">
       <h2>02. Logo</h2>
@@ -63,9 +63,9 @@
       <h3>Secondary navigation</h3>
       <nav>
         <ul class="sub-navigation">
-          <li><a href="styleguide.html" class="current">Atoms</a></li>
+          <li class="current"><%= link_to("Atoms", "/styles/styleguide") %></li>
           <li><a href="molecules.html">Molecules</a></li>
-          <li><a href="organisms.html">Organisms</a></li>
+          <li><% link_to('Organisms',"/styles/organisms") %></li>
           <li><a href="#templates">Templates</a></li>
           <li><a href="#pages">Pages</a></li>
         </ul>
