@@ -2,9 +2,9 @@
     <div>
       <nav>
         <ul class="sub-navigation">
-          <li><%= link_to("Atoms", "/styles/atoms") %></li>
-          <li><%= link_to("Molecules", "/styles/molecules") %></li>
-          <li><%= link_to("Organisms", "/styles/organisms") %></li>
+          <li><%= render(partial:'sub_nav_item',locals:{current: false, title:'Atoms', uri:'/styles/atoms'}) %> </li>
+            <li><%= render(partial:'sub_nav_item', locals:{current:false, title:'Molecules',uri:'/styles/molecules'}) %> </li>
+            <li><%= render(partial:'sub_nav_item', locals:{current: true, title:'Organisms', uri:"/styles/organisms"}) %> </li>
           <li><a href="templates.html">Templates</a></li>
           <li><a href="#pages">Pages</a></li>
         </ul>
@@ -60,18 +60,14 @@
       <h2>02. Ideas</h2>
       <div>
         <ul class="bare-list float-grid css-grid">
+        <% ["See the Northern Lights", "Swim with Dolphines", "Drive a Sport Car", "Dance like there is no tomorrow", nil].each do |title| %>
+          <% if(title.present?) %>
           <li>
-            <%= render(partial: 'idea_card', locals:{card_title:'See the Northern Lights'}) %>
+            <%= render(partial: 'idea_card', locals:{card_title:title}) %>
           </li>
-          <li>
-            <%= render(partial: 'idea_card', locals:{card_title:'Swim with Dolphines'}) %>
-          </li>
-          <li>
-            <%= render(partial: 'idea_card', locals:{card_title:'Drive a Sport Car'}) %>
-          </li>
-          <li>
-            <%= render(partial: 'idea_card', locals:{card_title:'Dance like there is no tomorrow'}) %>
-          </li>
+          <% end %>
+        <% end %>
+          
         </ul>
       </div>
     </section>
