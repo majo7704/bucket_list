@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+root to:'home#index'
+
  get 'ideas/index'
 
   get 'home/index'
@@ -8,6 +10,10 @@ Rails.application.routes.draw do
   get 'styles/molecules'
 
   get 'styles/organisms'
+
+  
+
+  # get 'complete/style/guide', to:'styles#atoms'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
