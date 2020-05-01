@@ -1,5 +1,6 @@
 class IdeasController < ApplicationController
   def index
+    @ideas = Idea.all
     @search_term=params[:q]
     logger.info("The search term is #{@search_term}")
   end
