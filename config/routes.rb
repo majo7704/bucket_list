@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'account/ideas'
+
 root to:'home#index'
 
 get 'home/index'
@@ -17,6 +19,7 @@ get 'home/index'
 
   get 'styles/organisms'
 
+  
   
 
   # get 'complete/style/guide', to:'styles#atoms'
