@@ -7,6 +7,10 @@
         <label class="input-group__label" for="title">Title</label>
         <%= text_field_tag('title', nil, id:"title", class:'input-group__field', placeholder:"E.g. Ride a camel") %> 
       </div>
+      <div class="input-group input-group--horizontal">
+        <label class="input-group__label" for="done_count">Done Count</label>
+        <%= text_field_tag('done_count', nil, id:"done_count", class:'input-group__field') %> 
+      </div>
       <div class="prompt">
         <a class="prompt__cancel" href="#cancel">Cancel</a>
         

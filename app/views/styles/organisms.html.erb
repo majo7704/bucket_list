@@ -63,7 +63,7 @@
         <% ["See the Northern Lights", "Swim with Dolphines", "Drive a Sport Car", "Dance like there is no tomorrow", nil].each do |title| %>
           <% if(title.present?) %>
           <li>
-            <%= render(partial: 'idea_card', locals:{card_title:title}) %>
+            <%= render(partial: 'idea_card', locals:{card_title:title, done_count:24}) %>
           </li>
           <% end %>
         <% end %>
