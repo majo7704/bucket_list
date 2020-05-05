@@ -19,6 +19,10 @@ get 'home/index'
 
   get 'styles/organisms'
 
+  get '/ideas/:id/edit', to:'ideas#edit', as:'edit_idea'
+
+  patch '/ideas/:id', to: 'ideas#update', as: 'idea'
+
   
   
 

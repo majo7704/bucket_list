@@ -1,11 +1,15 @@
 <div class="card">
           <div class="card__thumb">
             <a href="ideas/northern-lights.html">
-              <img src="http://fpoimg.com/255x170" alt="Northern lights over mountain covered in snow">
+              <% if idea.photo_url.present? %>
+            <%= image_tag(idea.photo_url, size: "255x170")  %>
+            <% else %>
+            <%= image_tag 'http://fpoimg.com/255x170' %>
+          <% end %>
             </a>
             <div class="card__intro">
-              <h4 class="card__title"><%= title %></h4>
-              <span><%= done_count %> have done this</span>
+              <h4 class="card__title"><%= idea.title %></h4>
+              <span><%= idea.done_count %> have done this</span>
             </div>
           </div>
           <div class="card__footer">
@@ -15,7 +19,7 @@
               </svg>
               Delete
             </button>
-            <a class="btn delta" href="#no-link">
+            <a class="btn delta" href="<%= edit_idea_path(idea) %>">
               <svg class="icon-edit" role="presentation">
                 <use xlink:href="../icons/icons-defs.svg#edit"></use>
               </svg>

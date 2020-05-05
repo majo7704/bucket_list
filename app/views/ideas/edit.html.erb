@@ -1,24 +1,24 @@
 <main>
   <div class="content-wrapper">
-    <h1>Create new idea</h1>
+    <h1>Edit idea</h1>
     
-    <%= form_tag(ideas_create_path, class:"form--inpage") do %>   
+    <%= form_tag(idea_path(@idea), method:'PATCH', class:"form--inpage") do %>   
       <div class="input-group input-group--horizontal">
         <label class="input-group__label" for="title">Title</label>
-        <%= text_field_tag('title', nil, id:"title", class:'input-group__field', placeholder:"E.g. Ride a camel") %> 
+        <%= text_field_tag('title', @idea.title, id:"title", class:'input-group__field', placeholder:"E.g. Ride a camel") %> 
       </div>
       <div class="input-group input-group--horizontal">
         <label class="input-group__label" for="done_count">Done Count</label>
-        <%= text_field_tag('done_count', nil, id:"done_count", class:'input-group__field') %> 
+        <%= text_field_tag('done_count', @idea.done_count, id:"done_count", class:'input-group__field') %> 
       </div>
       <div class="input-group input-group--horizontal">
         <label class="input-group__label" for="photo_url">Photo Url</label>
-        <%= text_field_tag('photo_url', nil, id:"photo_url", class:'input-group__field') %> 
+        <%= text_field_tag('photo_url', @idea.photo_url, id:"photo_url", class:'input-group__field') %> 
       </div>
       <div class="prompt">
         <a class="prompt__cancel" href="#cancel">Cancel</a>
         
-        <%= button_tag('Create idea',  class:"btn btn--primary prompt__confirm") %> 
+        <%= button_tag('Update idea',  class:"btn btn--primary prompt__confirm") %> 
       </div>
     <% end %>
   </div>

@@ -1,7 +1,11 @@
 <div class="card">
         <div class="card__thumb">
           <a href="ideas/one-example-idea.html">
-            <img src="http://fpoimg.com/255x170" alt="Northern lights over mountain covered in snow">
+          <% if photo_url.present? %>
+            <%= image_tag(photo_url, size: "255x170")  %>
+            <% else %>
+            <%= image_tag 'http://fpoimg.com/255x170' %>
+          <% end %>
           </a>
           <div class="card__intro">
             <h4 class="card__title"><%= card_title %></h4>
