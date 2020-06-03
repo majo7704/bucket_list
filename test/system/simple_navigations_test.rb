@@ -4,7 +4,7 @@ class SimpleNavigationsTest < ApplicationSystemTestCase
 test 'search term is diplayed' do
   visit('http://localhost:3000/')
   assert page.has_content?('Bucket List')
-  fill_in('q', with: 'Spain').send_keys(:return)
+  fill_in('q', :with=>'Spain').send_keys(:return)
   assert has_content?('Spain')
   assert current_url.include?('q=Spain')
 end
