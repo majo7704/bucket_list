@@ -1,30 +1,31 @@
 Rails.application.routes.draw do
-  get 'account/ideas'
-
+  
 root to:'home#index'
 
 get 'home/index'
 
+get 'styles/atoms'
 
- get 'ideas/index'
+get 'styles/molecules'
 
- get 'ideas/new'
+get 'styles/organisms'
 
- post 'ideas/create'
 
+get 'ideas/index'
+
+get 'ideas/new'
+
+post 'ideas/create'
+
+get 'ideas/:id/edit', to:'ideas#edit', as:'edit_idea'
+
+patch 'ideas/:id', to: 'ideas#update', as: 'idea'
+
+get 'ideas/:id', to: 'ideas#show', as:'show_idea'
   
-  get 'styles/atoms'
-
-  get 'styles/molecules'
-
-  get 'styles/organisms'
-
-  get '/ideas/:id/edit', to:'ideas#edit', as:'edit_idea'
-
-  patch '/ideas/:id', to: 'ideas#update', as: 'idea'
-
   
-  
+
+  get 'account/ideas'
 
   # get 'complete/style/guide', to:'styles#atoms'
 

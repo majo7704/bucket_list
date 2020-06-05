@@ -1,0 +1,5 @@
+<% if photo_url.present? %>
+            <%= image_tag(photo_url, size: "255x170")  %>
+            <% else %>
+            <%= image_tag('http://fpoimg.com/310x170') %>
+  <% end %>

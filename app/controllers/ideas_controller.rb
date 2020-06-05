@@ -18,6 +18,11 @@ class IdeasController < ApplicationController
     redirect_to ideas_index_path
   end
 
+  def show
+    @idea=Idea.find(params[:id])
+    
+  end
+
   def edit
     id = params[:id]
     @idea = Idea.find(id)
