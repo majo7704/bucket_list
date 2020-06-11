@@ -24,8 +24,7 @@ patch 'ideas/:id', to: 'ideas#update', as: 'idea'
 get 'ideas/:id', to: 'ideas#show', as:'show_idea'
   
   
-
-  get 'account/ideas'
+get 'account/ideas'
 
   # get 'complete/style/guide', to:'styles#atoms'
 

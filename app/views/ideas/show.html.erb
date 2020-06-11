@@ -7,18 +7,20 @@
       <div class="media__body">
         <div class="goal">
           <div class="goal__owner">
-            <img class="avatar" src="#images/avatar.png" alt="Portrait of Frederick Rose">
+
+          <%= image_tag('avatar', alt:"Default avatar", class:"avatar") %>
+            
             <p>Created by <a href="#">Frederick Rose</a></p>
           </div>
           <h1 class="gamma"><%= @idea.title%></h1>
           <ul class="horizontal-list btn-group">
             <li>
-              <a class="btn delta" href="#no-link">
+            <%= link_to(edit_idea_path(@idea), class:"btn delta") do %>
                 <svg class="icon-check icon--sm" role="presentation">
                   <!-- <use xlink:href="images/icons-defs.svg#check"></use> -->
                 </svg>
                 Edit
-              </a>
+              <% end %>
             </li>
             <li>
               <button class="btn delta" type="button">
@@ -35,8 +37,11 @@
             </p>
           </div>
           <div class="goal__meta">
-            <span>Created on <time datetime="2017-08-27T03:48">27/08/2017</time></span>
-            <span><%= @idea.done_count %>have done this </span>
+          
+            <span>Created on
+            <%= @idea.created_at.strftime("%d %b '%y") %>
+          </span>
+            <span><%= @idea.done_count %> people have done this </span>
             <span><a href="#comments">3 comments</a></span>
           </div>
           <ul class="tags-list">
@@ -59,7 +64,7 @@
       <h2 class="comments__title">Discussion <span>3 comments</span></h2>
 
       <form class="comments__input" action="goal.html" method="post">
-        <img class="avatar" src="#images/avatar.png" alt="Portrait of logged in user">
+         <%= image_tag('avatar', alt:"Default avatar", class:"avatar") %>
         <div class="input-group">
           <label class="input-group__label" for="comment">Add a comment</label>
           <textarea id="comment" class="input-group__field"></textarea>
@@ -69,21 +74,21 @@
 
       <ul class="comments__listing">
         <li class="comment">
-          <img class="avatar" src="#images/avatar.png" alt="Portrait of commenter">
+           <%= image_tag('avatar', alt:"Default avatar", class:"avatar") %>
           <div class="comment__body">
             <h3 class="comment__title">Tom Jenkinson <time datetime="2017-08-28T13:48">Today</time></h3>
             <p>I have done this and it is amazing!  I will never forget it.</p>
           </div>
         </li>
         <li class="comment">
-          <img class="avatar" src="#images/avatar.png" alt="Portrait of commenter">
+           <%= image_tag('avatar', alt:"Default avatar", class:"avatar") %>
           <div class="comment__body">
             <h3 class="comment__title">Emily Walker <time datetime="2017-08-27T03:48">Yesterday</time></h3>
             <p>When do you think that you will get a chance to do this?  Have you already planned it?</p>
           </div>
         </li>
         <li class="comment">
-          <img class="avatar" src="#images/avatar.png" alt="Portrait of commenter">
+           <%= image_tag('avatar', alt:"Default avatar", class:"avatar") %>
           <div class="comment__body">
             <h3 class="comment__title">Claire Prince <time datetime="2016-06-10T09:48">10. June 2016</time></h3>
             <p>I am thinking about this as well.</p>
