@@ -24,7 +24,39 @@ class IdeasTest < ApplicationSystemTestCase
     assert page.has_content?('Join a dance club')
 
     assert page.has_content?('Join a tennis club')
-
-    
   end
+
+  test 'editing an Idea' do
+    idea=Idea.new
+    idea.save!
+    visit(edit_idea_path(idea))
+    fill_in('done_count', with: 73)
+    fill_in('title', with: 'Learn Ruby on Rails')
+    click_on('Update')
+    click_on('Learn Ruby on Rails')
+
+    assert page.has_content?('Learn Ruby on Rails')
+    assert page.has_content?('73 have done this')
+  end
+
+  test 'search' do
+    idea_1=Idea.new
+    idea_1.title="Climb Mont Blanc"
+    idea_1.save!
+
+    idea_2=Idea.new
+    idea_2.title="Visit Niagara Falls"
+    idea_2.save!
+
+    visit(root_path)
+
+    fill_in('q', with:'Mont')
+    click_on('Search', match: :first)
+
+    assert current_path.include?(ideas_index_path)
+
+    assert page.has_content?('Climb Mont Blanc')
+
+    refute page.has_content?('Visit Niagara Falls')
+  end  
 end
