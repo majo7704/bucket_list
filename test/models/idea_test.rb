@@ -72,4 +72,31 @@ end
 
     assert_equal Idea.search('Stand').length, 2
   end
+
+  test 'most_recent with no ideas' do
+    assert_empty Idea.most_recent
+end
+
+test 'most_recent with two ideas' do
+  idea_1=Idea.new
+  idea_1.title='Exciting idea 1'
+  idea_1.save!
+  idea_2=Idea.new
+  idea_2.title='Exciting idea 2'
+  idea_2.save!
+
+  assert_equal Idea.most_recent.length,2
+  assert_equal Idea.most_recent.first, idea_2
+end
+
+test 'most_recent with six ideas' do
+  6.times do |i|
+    idea=Idea.new
+    idea.title="Exciting idea #{i+1}"
+    idea.save!
+  end
+
+  assert_equal Idea.most_recent.length,3
+  assert_equal Idea.most_recent.first.title, "Exciting idea 6"
+end  
 end
