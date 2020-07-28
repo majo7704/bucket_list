@@ -16,12 +16,15 @@
       <div class="content-wrapper">
         <h2>Some ideas</h2>
         <ul class="bare-list float-grid css-grid">
-        <% ["See the Northern Lights", "Swim with Dolphines", "Dance like there is no tomorrow"].each do |title| %>
+        <% @ideas.each do |idea| %>
           <li>
-            <%= render(partial: 'idea_card', locals:{card_title:title, done_count: 24, photo_url: 'http://fpoimg.com/255x170', idea: 1}) %>
+            <%= render(partial: 'idea_card', 
+                      locals:{card_title:idea.title, 
+                              done_count: idea.done_count, 
+                              photo_url:idea.photo_url, 
+                              idea: idea}) %>
           </li>
         <% end %>
-          
         </ul>
       </div>
       <div class="see-more">
