@@ -6,7 +6,7 @@ class ShowIdeasTest < ApplicationSystemTestCase
     idea.done_count = 13
     idea.title = 'Dance like no one watching'
     idea.save!
-  visit(show_idea_path(idea))
+  visit(idea_path(idea))
   sleep(10.seconds)
   assert page.has_content?("Dance like no one watching")
   assert page.has_content?('13 people have done this')

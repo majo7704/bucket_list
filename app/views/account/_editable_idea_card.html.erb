@@ -1,6 +1,6 @@
 <div class="card">
           <div class="card__thumb">
-            <%= link_to(show_idea_path(idea)) do %>
+            <%= link_to(idea_path(idea)) do %>
               <% if idea.photo_url.present? %>
             <%= image_tag(idea.photo_url, size: "255x170")  %>
             <% else %>
@@ -14,15 +14,11 @@
           </div>
           <div class="card__footer">
             <button class="btn delta" type="submit">
-              <svg class="icon-delete" role="presentation">
-                <use href="../icons/icons-defs.svg#delete"></use>
-              </svg>
+              
               Delete
             </button>
             <a class="btn delta" href="<%= edit_idea_path(idea) %>">
-              <svg class="icon-edit" role="presentation">
-                <use xlink:href="../icons/icons-defs.svg#edit"></use>
-              </svg>
+>
               Edit
             </a>
           </div>

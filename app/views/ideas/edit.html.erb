@@ -2,7 +2,7 @@
   <div class="content-wrapper">
     <h1>Edit idea</h1>
     
-    <%= form_tag(idea_path(@idea), method:'PATCH', class:"form--inpage") do %>   
+    <%= form_for(@idea, html: {class:"form--inpage"}) do |form| %>   
       <div class="input-group input-group--horizontal">
         <label class="input-group__label" for="title">Title</label>
         <%= text_field_tag('title', @idea.title, id:"title", class:'input-group__field', placeholder:"E.g. Ride a camel") %> 

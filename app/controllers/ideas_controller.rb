@@ -10,17 +10,14 @@ class IdeasController < ApplicationController
   end
 
   def create
-    idea = Idea.new
-    idea.title = params[:title]
-    idea.done_count = params[:done_count]
-    idea.photo_url = params[:photo_url]
+    idea = Idea.new(idea_params)
+    
     idea.save!
-    redirect_to ideas_index_path
+    redirect_to ideas_path
   end
 
   def show
     @idea=Idea.find(params[:id])
-    
   end
 
   def edit
@@ -30,11 +27,15 @@ class IdeasController < ApplicationController
 
   def update
     id = params[:id]
-    idea = Idea.find(params[:id])
-    idea.title = params[:title]
-    idea.done_count = params[:done_count]
-    idea.photo_url = params[:photo_url]
-    idea.save!
+    idea = Idea.find(id)
+    idea.update(idea_params)
+    
     redirect_to account_ideas_path
+  end
+
+  private
+
+  def idea_params
+    params.permit(:title, :description, :done_count, :photo_url)
   end
 end
