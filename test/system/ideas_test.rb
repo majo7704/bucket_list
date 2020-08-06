@@ -30,11 +30,11 @@ class IdeasTest < ApplicationSystemTestCase
     idea=Idea.new
     idea.save!
     visit(edit_idea_path(idea))
-    fill_in('done_count', with: 73)
-    fill_in('title', with: 'Learn Ruby on Rails')
-    click_on('Update')
+    fill_in('Done count', with: 73)
+    fill_in('Title', with: 'Learn Ruby on Rails')
+    click_on('Update idea')
     
-
+    
     assert page.has_content?('Learn Ruby on Rails')
     assert page.has_content?('73 have done this')
   end
