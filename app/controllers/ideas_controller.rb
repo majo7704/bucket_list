@@ -30,11 +30,13 @@ end
 
   def update
     id = params[:id]
-    idea = Idea.find(id)
-    idea.update(idea_resource_params)
-    
-    redirect_to account_ideas_path
+    @idea = Idea.find(id)
+    if(@idea.update(idea_resource_params))
+      redirect_to account_ideas_path
+    else
+      render 'edit'
   end
+end
 
   private
 
