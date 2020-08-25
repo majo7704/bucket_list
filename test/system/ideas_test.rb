@@ -106,4 +106,6 @@ class IdeasTest < ApplicationSystemTestCase
     refute page.has_content?('Overnight hike in Switzerland')
 
   end
+
+  
 end

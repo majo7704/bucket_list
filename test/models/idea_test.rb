@@ -120,4 +120,6 @@ class IdeaTest < ActiveSupport::TestCase
     assert_equal Idea.search('mountains').length,2
 
   end
+
+  
 end
