@@ -19,7 +19,7 @@ class IdeaTest < ActiveSupport::TestCase
     idea.save!
 
     updated_at = idea.updated_at
-    idea.title = ''
+    idea.title = 'Learn to swim'
 
     assert idea.save
     refute_equal idea.updated_at, updated_at
@@ -37,6 +37,7 @@ class IdeaTest < ActiveSupport::TestCase
 
   test 'updated_at is changed after updating photo_url'do
     idea=Idea.new
+    idea.title='Visit Marakesh'
     idea.photo_url='/images/turtle.jpg'
     idea.save!
     first_updated_at = idea.updated_at
@@ -120,6 +121,21 @@ class IdeaTest < ActiveSupport::TestCase
     assert_equal Idea.search('mountains').length,2
 
   end
+
+  test 'maximum length of title' do
+    idea =Idea.new title: 'very long title very long title very long title very long title very long title very long title very long title very long title'
+
+    #idea is not going to be valid
+    refute idea.valid?
+  end
+
+  test 'presence of title' do
+    idea=Idea.new 
+    
+    #show that idea is not valid when it does not have a title
+    refute idea.valid?
+  end
+
 
   
 end
