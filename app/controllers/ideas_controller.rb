@@ -17,6 +17,7 @@ class IdeasController < ApplicationController
     else
       render 'new'
   end
+end
 
   def show
     @idea=Idea.find(params[:id])
