@@ -1,4 +1,6 @@
 class Idea < ApplicationRecord
+  validates :title, presence: true
+
   def self.most_recent()
     all.order(created_at: :desc).limit(3)
   end

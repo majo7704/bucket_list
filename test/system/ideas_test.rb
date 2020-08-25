@@ -3,10 +3,10 @@ require "application_system_test_case"
 class IdeasTest < ApplicationSystemTestCase
   test "create new idea" do
     visit(new_idea_path)
-    fill_in('title', with: 'Swim with turtles')
-    fill_in('done_count', with: 2)
+    fill_in('Title', with: 'Swim with turtles')
+    fill_in('Done count', with: 2)
     fill_in('photo_url', with: 'https://media.farandwide.com/51/8c/518c936514c344f2a218a575f48f7abd.jpg')
-    click_on('Create idea')
+    click_on('Create Idea')
     
     assert page.has_content?('Swim with turtles')
   end
@@ -32,7 +32,7 @@ class IdeasTest < ApplicationSystemTestCase
     visit(edit_idea_path(idea))
     fill_in('Done count', with: 73)
     fill_in('Title', with: 'Learn Ruby on Rails')
-    click_on('Update idea')
+    click_on('Update Idea')
     
     
     assert page.has_content?('Learn Ruby on Rails')
