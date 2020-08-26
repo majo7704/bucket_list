@@ -21,6 +21,7 @@ end
 
   def show
     @idea=Idea.find(params[:id])
+    @comment = Comment.new
   end
 
   def edit
