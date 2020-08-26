@@ -136,6 +136,7 @@ class IdeaTest < ActiveSupport::TestCase
     refute idea.valid?
   end
 
+  
 
   
 end

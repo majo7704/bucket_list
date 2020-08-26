@@ -22,7 +22,33 @@ class CommentTest < ActiveSupport::TestCase
 
     #assert that `Comment.first.idea` (the Idea associated with the first Comment in the db) is equal to the first comment in the db
     assert_equal idea_2, Comment.first.idea
+  end
 
+  test 'cascading save' do
+    idea = Idea.new title: 'Relaxing'
+    idea.save!
+
+    comment = Comment.new body: 'Greate idea'
+    idea.comments << comment
+    idea.save!
+
+    assert_equal comment, Comment.first
+  end
+  test 'comments are ordered correctly' do
+    idea=Idea.new title: 'New Idea'
+    idea.save!
+
+    comment_1=Comment.new body: 'this would be a great fun'
+    comment_2=Comment.new body: 'I agree'
+
+    #add the first Comment to the `#comments` collection of the Idea
+    idea.comments << comment_1
+    #add the second Comment to the `#comments` collection of the Idea
+    idea.comments << comment_2
+    #call `#save!` on the _Idea_ (not the Comment)
+    idea.save!
+    assert_equal idea.comments.first, comment_1
+    assert_equal idea.comments.count, 2
 
   end
 end
