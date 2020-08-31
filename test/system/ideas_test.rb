@@ -121,4 +121,6 @@ class IdeasTest < ApplicationSystemTestCase
     click_on('Update Idea')
     assert page.has_content?("Title can't be blank")
   end
+  
+
 end
