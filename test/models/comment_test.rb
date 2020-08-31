@@ -7,7 +7,7 @@ class CommentTest < ActiveSupport::TestCase
     idea.save!
 
     #create and save a new Comment with "I'd like to do this!" as the `body` value and the Idea
-    comment = Comment.new body: "I'd like to do this!", idea: idea
+    comment = Comment.new body: "I'd like to do this!", idea: idea, user:User.new
     comment.save!
 
     #create and save second new Idea with a different title
@@ -28,7 +28,7 @@ class CommentTest < ActiveSupport::TestCase
     idea = Idea.new title: 'Relaxing'
     idea.save!
 
-    comment = Comment.new body: 'Greate idea'
+    comment = Comment.new body: 'Greate idea', user:User.new
     idea.comments << comment
     idea.save!
 
@@ -38,8 +38,8 @@ class CommentTest < ActiveSupport::TestCase
     idea=Idea.new title: 'New Idea'
     idea.save!
 
-    comment_1=Comment.new body: 'this would be a great fun'
-    comment_2=Comment.new body: 'I agree'
+    comment_1=Comment.new body: 'this would be a great fun', user:User.new
+    comment_2=Comment.new body: 'I agree', user:User.new
 
     #add the first Comment to the `#comments` collection of the Idea
     idea.comments << comment_1
