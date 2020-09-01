@@ -5,6 +5,21 @@ class IdeasController < ApplicationController
     @ideas = Idea.search(@search_term)
   end
 
+  def show
+    @idea=Idea.find(params[:id])
+    @comment = Comment.new
+    @comments = Comment.all
+    @display_add_comment = session[:user_id].present?
+
+    if(session[:user_id].present?)    
+      @user = User.find(session[:user_id])
+      @disable_add_goal = @user.goals.exists?(@idea.id)
+    else
+      @user = nil
+    end
+  end
+
+
   def new
     @idea = Idea.new
   end
@@ -20,19 +35,7 @@ class IdeasController < ApplicationController
   end
 end
 
-  def show
-    @idea=Idea.find(params[:id])
-    @comment = Comment.new
-    @comments = Comment.all
-    @display_add_comment = session[:user_id].present?
-
-    if(session[:user_id].present?)    
-      @user = User.find(session[:user_id])
-    else
-      @user = nil
-    end
-  end
-
+  
   def edit
     id = params[:id]
     @idea = Idea.find(id)
