@@ -11,6 +11,7 @@ get 'styles/molecules'
 get 'styles/organisms'
 
 resources :users
+  resources :goals
 
 resources :ideas do
   resources :comments
