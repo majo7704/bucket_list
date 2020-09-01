@@ -22,6 +22,8 @@ end
   def show
     @idea=Idea.find(params[:id])
     @comment = Comment.new
+    @comments = Comment.all
+    @display_add_comment = session[:user_id].present?
   end
 
   def edit

@@ -19,4 +19,13 @@ test 'adding a Comment to the idea' do
     assert_equal idea_path(idea), page.current_path
     assert page.has_content?('I love your idea')
   end
+
+  test 'comments cannot be added when not logged in' do
+    idea= Idea.new title: 'Swim with sharks'
+    idea.save!
+
+    visit idea_path(idea)
+    refute page.has_content?('Add a comment')
+
+  end
 end

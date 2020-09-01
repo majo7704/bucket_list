@@ -61,8 +61,10 @@
   </div>
   <div class="content-wrapper">
     <div class="comments">
-      <h2 class="comments__title">Discussion <span>3 comments</span></h2>
+      
 
+      <% if(@display_add_comment)%>
+      <h2 class="comments__title">Discussion <span>Comments <%= @comments.length %></span></h2>
         <%= form_for([@idea, @comment], html: {class: "comments__input"}) do |form| %>
           <%= image_tag('avatar', alt:"Default avatar", class:"avatar") %>
           <div class="input-group">
@@ -71,6 +73,7 @@
           </div>
           <%= form.submit('Post',class:"btn btn--primary" )%>
         <% end %>
+      <% end %>
 
       <ul class="comments__listing">
       <% @idea.comments.each do |comment| %>
