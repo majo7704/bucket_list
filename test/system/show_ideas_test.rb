@@ -2,10 +2,9 @@ require "application_system_test_case"
 
 class ShowIdeasTest < ApplicationSystemTestCase
   test "show displays title" do
-    idea=Idea.new
-    idea.done_count = 13
-    idea.title = 'Dance like no one watching'
+    idea=Idea.new title: 'Dance like no one watching', done_count: 13, user: User.new
     idea.save!
+    
   visit(idea_path(idea))
   sleep(10.seconds)
   assert page.has_content?("Dance like no one watching")

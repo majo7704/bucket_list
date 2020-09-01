@@ -2,22 +2,28 @@ require "application_system_test_case"
 
 class IdeasTest < ApplicationSystemTestCase
   test "create new idea" do
+    user = User.new email: 'new@example.com'
+    user.save!
+    visit(new_user_path)
+    fill_in('Email', with: 'new@example.com')
+    click_on('Log in')
     visit(new_idea_path)
     fill_in('Title', with: 'Swim with turtles')
     fill_in('Done count', with: 2)
     fill_in('photo_url', with: 'https://media.farandwide.com/51/8c/518c936514c344f2a218a575f48f7abd.jpg')
-    click_on('Create Idea')
+    click_on('commit')
+    
     
     assert page.has_content?('Swim with turtles')
   end
 
   test 'index loads ideas' do
-    idea_1 = Idea.new
-    idea_1.title = 'Join a tennis club'
+    idea_1 = Idea.new title: 'Join a tennis club',
+                      user: User.new
     idea_1.save!
 
-    idea_2 = Idea.new
-    idea_2.title = 'Join a dance club'
+    idea_2 = Idea.new title: 'Join a dance club',
+                        user: User.new
     idea_2.save!
 
     visit (ideas_path)
@@ -27,7 +33,7 @@ class IdeasTest < ApplicationSystemTestCase
   end
 
   test 'editing an Idea' do
-    idea=Idea.new title: 'Test'
+    idea=Idea.new title: 'Test', user: User.new
     idea.save!
     visit(edit_idea_path(idea))
     fill_in('Done count', with: 73)
@@ -40,11 +46,11 @@ class IdeasTest < ApplicationSystemTestCase
   end
 
   test 'search' do
-    idea_1=Idea.new
+    idea_1=Idea.new user: User.new
     idea_1.title="Climb Mont Blanc"
     idea_1.save!
 
-    idea_2=Idea.new
+    idea_2=Idea.new  user: User.new
     idea_2.title="Visit Niagara Falls"
     idea_2.save!
 
@@ -66,7 +72,7 @@ class IdeasTest < ApplicationSystemTestCase
   end
   test 'test homepage highlights' do
     4.times do |i|
-      idea = Idea.new
+      idea = Idea.new  user: User.new
       idea.title = "Exciting idea #{i+1}"
       idea.save!
     end
@@ -78,19 +84,15 @@ class IdeasTest < ApplicationSystemTestCase
   end
 
   test 'search by description and title' do
-    idea_1=Idea.new
-    idea_1.title='Go cycling across Europe'
-    idea_1.description='An amazing way to see lots of Europe'
+    idea_1=Idea.new title: 'Go cycling across Europe',
+                    description: 'An amazing way to see lots of Europe',
+                    user: User.new
     idea_1.save!
 
-    idea_2=Idea.new
-    idea_2.title='Visit Provance'
-    idea_2.description='Go to vineyards, go cycling up Mont Ventoux, see the fields of lavender'
+    idea_2=Idea.new title: 'Visit Provance', description: 'Go to vineyards, go cycling up Mont Ventoux, see the fields of lavender', user: User.new
     idea_2.save!
 
-    idea_3=Idea.new
-    idea_3.title='Overnight hike in Switzerland'
-    idea_3.description='Stay in a Swiss refuge in the mountains'
+    idea_3=Idea.new title: 'Overnight hike in Switzerland', description: 'Stay in a Swiss refuge in the mountains', user: User.new
     idea_3.save!
 
     visit(root_path)
@@ -108,13 +110,18 @@ class IdeasTest < ApplicationSystemTestCase
   end
 
   test 'new idea with no title' do
+    user=User.new
+    user.save!
+    visit(new_user_path)
+    fill_in('Email', with: 'new@example.com')
+    click_on('Log in')
     visit(new_idea_path())
     click_on('Create Idea')
     assert page.has_content?("Title can't be blank")
   end
 
   test 'existing idea updated with no title' do
-    idea= Idea.new title: 'New Title'
+    idea= Idea.new title: 'New Title', user: User.new
     idea.save!
     visit(edit_idea_path(idea))
     fill_in('Title', with: '')

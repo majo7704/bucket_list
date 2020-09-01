@@ -3,7 +3,7 @@ require 'test_helper'
 class CommentTest < ActiveSupport::TestCase
   test 'changing associated idea for a Comment' do 
     #create and save new valid Idea
-    idea = Idea.new title: 'New idea'
+    idea = Idea.new title: 'New idea', user: User.new
     idea.save!
 
     #create and save a new Comment with "I'd like to do this!" as the `body` value and the Idea
@@ -11,7 +11,7 @@ class CommentTest < ActiveSupport::TestCase
     comment.save!
 
     #create and save second new Idea with a different title
-    idea_2 = Idea.new title: 'Second new idea'
+    idea_2 = Idea.new title: 'Second new idea', user: User.new
     idea_2.save!
 
     #assign the Idea (idea_2) from step 3 to the `#idea` attribute on the Comment
@@ -25,7 +25,7 @@ class CommentTest < ActiveSupport::TestCase
   end
 
   test 'cascading save' do
-    idea = Idea.new title: 'Relaxing'
+    idea = Idea.new title: 'Relaxing', user: User.new
     idea.save!
 
     comment = Comment.new body: 'Greate idea', user:User.new
@@ -35,7 +35,7 @@ class CommentTest < ActiveSupport::TestCase
     assert_equal comment, Comment.first
   end
   test 'comments are ordered correctly' do
-    idea=Idea.new title: 'New Idea'
+    idea=Idea.new title: 'New Idea', user: User.new
     idea.save!
 
     comment_1=Comment.new body: 'this would be a great fun', user:User.new

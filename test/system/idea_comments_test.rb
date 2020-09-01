@@ -5,7 +5,7 @@ test 'adding a Comment to the idea' do
     user = User.new email: 'user@example.com'
     user.save!
 
-    idea= Idea.new title: 'Swim with sharks'
+    idea= Idea.new title: 'Swim with sharks', user: User.new
     idea.save!
 
     visit(new_user_path)
@@ -21,7 +21,7 @@ test 'adding a Comment to the idea' do
   end
 
   test 'comments cannot be added when not logged in' do
-    idea= Idea.new title: 'Swim with sharks'
+    idea= Idea.new title: 'Swim with sharks', user: User.new
     idea.save!
 
     visit idea_path(idea)
