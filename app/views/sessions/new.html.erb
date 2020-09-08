@@ -4,6 +4,17 @@
       <h1 class="gamma">Log in</h1>
     </header>
     <main>
+
+    <!-- only display me if there are flash messages>-->
+    <% if(flash.any?) %>
+      <div class="message-container">
+        <!--> display the message <div> once per message and ensure that flash[:name] is used as a dynamic CSS class-->
+        <% flash.each do |name, message| %>
+          <div class="message <%= name %>"><%= message %></div>
+        <% end %>
+      </div>
+    <% end %>
+
     <%= form_tag(sessions_path) do %>
         <div class="input-group">
           <%= label(:email, nil, class:"input-group__label") %>
