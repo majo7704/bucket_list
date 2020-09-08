@@ -10,6 +10,8 @@ get 'styles/molecules'
 
 get 'styles/organisms'
 
+resources :sessions, only: [:new, :create]
+
 resources :users do
   resources :goals
 end 
