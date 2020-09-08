@@ -20,8 +20,9 @@
           <nav class="site-header__nav">
             <ul class="main-navigation">
               <li><a href="#nolink">Inspiration</a></li>
+              <li><%= link_to('Sign up', new_user_path) %></li>
               <li><%= link_to('Account', account_ideas_path) %></li>
-              <li><a href="#nolink">Log In</a></li>
+              <li><%= link_to('Log In', new_session_path) %></li>
             </ul>
           </nav>
         </div>

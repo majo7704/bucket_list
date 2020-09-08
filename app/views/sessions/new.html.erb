@@ -5,10 +5,9 @@
     </header>
     <main>
 
-    <!-- only display me if there are flash messages>-->
     <% if(flash.any?) %>
       <div class="message-container">
-        <!--> display the message <div> once per message and ensure that flash[:name] is used as a dynamic CSS class-->
+      
         <% flash.each do |name, message| %>
           <div class="message <%= name %>"><%= message %></div>
         <% end %>
@@ -17,11 +16,11 @@
 
     <%= form_tag(sessions_path) do %>
         <div class="input-group">
-          <%= label(:email, nil, class:"input-group__label") %>
+          <%= label_tag(:email, nil, class:"input-group__label") %>
           <%= text_field_tag(:email,nil, class:"input-group__field", placeholder:"e.g. me@epfl.ch" )%>
         </div>
         <div class="input-group">
-          <%= label(:password, nil, class:"input-group__label") %>
+          <%= label_tag(:password, nil, class:"input-group__label") %>
           <%= password_field_tag(:password, nil, class:"input-group__field" )%>
         </div>
         <div class="prompt">
