@@ -2,11 +2,12 @@ require "application_system_test_case"
 
 class IdeasTest < ApplicationSystemTestCase
   test "create new idea" do
-    user = User.new email: 'new@example.com'
+    user = User.new email: 'new@example.com', password: 'password'
     user.save!
-    visit(new_user_path)
+    visit(new_session_path)
     fill_in('Email', with: 'new@example.com')
-    click_on('Log in')
+    fill_in('Password', with: 'password')
+    click_button('Log in')
     visit(new_idea_path)
     fill_in('Title', with: 'Swim with turtles')
     fill_in('Done count', with: 2)
@@ -33,7 +34,8 @@ class IdeasTest < ApplicationSystemTestCase
   end
 
   test 'editing an Idea' do
-    idea=Idea.new title: 'Test', user: User.new
+    user = User.new email: 'user@example.ch', password: 'password'
+    idea=Idea.new title: 'Test', user: user
     idea.save!
     visit(edit_idea_path(idea))
     fill_in('Done count', with: 73)
@@ -110,11 +112,12 @@ class IdeasTest < ApplicationSystemTestCase
   end
 
   test 'new idea with no title' do
-    user=User.new
+    user=User.new email: 'new@example.com', password: 'password'
     user.save!
-    visit(new_user_path)
+    visit(new_session_path)
     fill_in('Email', with: 'new@example.com')
-    click_on('Log in')
+    fill_in('Password', with: 'password')
+    click_button('Log in')
     visit(new_idea_path())
     click_on('Create Idea')
     assert page.has_content?("Title can't be blank")
