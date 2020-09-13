@@ -10,7 +10,7 @@ get 'styles/molecules'
 
 get 'styles/organisms'
 
-resources :sessions, only: [:new, :create]
+resources :sessions, only: [:new, :create, :destroy]
 
 resources :users do
   resources :goals
@@ -21,6 +21,10 @@ resources :ideas do
 end 
   
 get 'account/ideas'
+
+get 'login', to: 'sessions#new'
+
+get 'signup', to: 'users#new'
 
   # get 'complete/style/guide', to:'styles#atoms'
 

@@ -2,14 +2,13 @@
 <html>
   <head>
     <title>BucketList</title>
-     <%= csrf_meta_tags %>
-     <%= stylesheet_link_tag 'application', media: 'all' %>
-     <%= favicon_link_tag asset_path('favicon.ico') %>
-    
+      <%= csrf_meta_tags %>
+      <%= stylesheet_link_tag 'application', media: 'all' %>
+      <%= favicon_link_tag asset_path('favicon.ico') %>
+      <%= javascript_include_tag 'application' %>
+  </head>
   <body>
-
-
-  <header class="sg-header">
+    <header class="sg-header">
       <div class="site-header">
         <div class="content-wrapper">
           <div class="logo">
@@ -17,14 +16,11 @@
           </div>
           <%= render(partial:'search_form', locals:{label:'Search'}) %>
           
-          <nav class="site-header__nav">
-            <ul class="main-navigation">
-              <li><a href="#nolink">Inspiration</a></li>
-              <li><%= link_to('Sign up', new_user_path) %></li>
-              <li><%= link_to('Account', account_ideas_path) %></li>
-              <li><%= link_to('Log In', new_session_path) %></li>
-            </ul>
-          </nav>
+          <% if(logged_in?)%>
+            <%= render(partial: 'authenticated_user_header')%>
+          <% else %>
+          <%= render(partial: 'anonymous_user_header')%>
+          <% end %>
         </div>
       </div>
     </header>
