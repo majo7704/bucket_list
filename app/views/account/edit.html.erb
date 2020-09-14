@@ -3,20 +3,20 @@
     <nav>
       <ul class="sub-navigation">
         <li><a href="#nolink" class="current">Account</a></li>
-        <li><a href="#nolink">Goals</a></li>
+        <li><%= link_to('Goals', account_goals_path) %></li>
         <li><a href="#nolink">Ideas</a></li>
         <li><a href="#nolink">Following</a></li>
       </ul>
     </nav>
     <h1>Account details</h1>
-    <%= form_for(current_user, url: account_path, html:{"form--inpage"}) do |form| %>
+    <%= form_for(current_user, url: account_path, html: {class: "form--inpage"}) do |form| %>
       <div class="input-group input-group--horizontal">
         <%= form.label(:email, class: "input-group__label") %>
         <%= form.text_field(:email, class:'input-group__field', type: "text", placeholder:"E.g. me@epfl.ch") %> 
       </div>
       <div class="input-group input-group--horizontal">
         <%= form.label(:name, class: "input-group__label") %>
-        <%= form.text_field(:name, class:'input-group__field', type: "text", placeholder:"E.g. Diana Prince") %> 
+        <%= form.text_field(:name, class:'input-group__field', placeholder:"E.g. Diana Prince") %> 
       </div>
       <div class="input-group input-group--horizontal">
         <%= form.label(:avatar_url, class: "input-group__label") %>

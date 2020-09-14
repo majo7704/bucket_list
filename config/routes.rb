@@ -22,8 +22,8 @@ end
 
 get 'account', to: 'account#edit'
 patch 'account', to: 'account#update'
-  
 get 'account/ideas'
+get 'account/goals'
 
 get 'login', to: 'sessions#new'
 
