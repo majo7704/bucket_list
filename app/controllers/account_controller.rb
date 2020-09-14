@@ -3,6 +3,9 @@ class AccountController < ApplicationController
 
   helper_method :current_user
 
+  def edit
+  end
+
   def ideas
     user = User.find(session[:user_id])
     @ideas = user.ideas

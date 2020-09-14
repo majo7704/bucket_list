@@ -19,6 +19,9 @@ end
 resources :ideas do
   resources :comments
 end 
+
+get 'account', to: 'account#edit'
+patch 'account', to: 'account#update'
   
 get 'account/ideas'
 
