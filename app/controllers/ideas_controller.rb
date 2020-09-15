@@ -1,4 +1,7 @@
 class IdeasController < ApplicationController
+  before_action :ensure_authenticated, only: :edit
+
+
   def index
     @search_term=params[:q]
     logger.info("The search term is #{@search_term}")
@@ -19,7 +22,6 @@ class IdeasController < ApplicationController
     end
   end
 
-
   def new
     @idea = Idea.new
   end
@@ -32,10 +34,10 @@ class IdeasController < ApplicationController
       redirect_to ideas_path
     else
       render 'new'
+    end
   end
-end
 
-  
+
   def edit
     id = params[:id]
     @idea = Idea.find(id)
@@ -58,4 +60,12 @@ end
     params.require(:idea).permit(:title, :description, :done_count, :photo_url)
   end
 
+  def ensure_owner
+    idea = Idea.find(params[:id])
+    if(idea.user == current_user)
+      return
+    end
+    redirect_to account_path
+  end
+  
 end
