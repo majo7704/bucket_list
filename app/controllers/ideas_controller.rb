@@ -1,5 +1,5 @@
 class IdeasController < ApplicationController
-  before_action :ensure_authenticated, only: [:edit, :update]
+  before_action :ensure_authenticated, only: [:new, :create, :edit, :update]
   before_action :load_idea,            only: [:edit, :update]
   before_action :ensure_owner,         only: [:edit, :update]
 
@@ -60,7 +60,9 @@ class IdeasController < ApplicationController
   end
 
   def ensure_owner
-    if(@idea.user == current_user)
+    if(current_user.role == "admin")
+      return
+    elsif(@idea.user == current_user)
       return
     end
     redirect_to account_path
