@@ -1,7 +1,6 @@
 class AccountController < ApplicationController
   before_action :ensure_authenticated
 
-
   def edit
   end
 
@@ -19,8 +18,8 @@ class AccountController < ApplicationController
     @goals = current_user.goals
   end  
 
-  
   private
+  
   def user_params
     params.require(:user).permit(:email, :name, :avatar_url)
   end

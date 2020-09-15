@@ -1,6 +1,7 @@
 class IdeasController < ApplicationController
-  before_action :ensure_authenticated, only: :edit
-
+  before_action :ensure_authenticated, only: [:edit, :update]
+  before_action :load_idea,            only: [:edit, :update]
+  before_action :ensure_owner,         only: [:edit, :update]
 
   def index
     @search_term=params[:q]
@@ -37,35 +38,32 @@ class IdeasController < ApplicationController
     end
   end
 
-
   def edit
-    id = params[:id]
-    @idea = Idea.find(id)
   end
 
   def update
-    id = params[:id]
-    @idea = Idea.find(id)
     if(@idea.update(idea_resource_params))
       redirect_to account_ideas_path
     else
       render 'edit'
+    end
   end
-end
 
   private
-
 
   def idea_resource_params
     params.require(:idea).permit(:title, :description, :done_count, :photo_url)
   end
 
+  def load_idea
+    @idea = Idea.find(params[:id])
+  end
+
   def ensure_owner
-    idea = Idea.find(params[:id])
-    if(idea.user == current_user)
+    if(@idea.user == current_user)
       return
     end
     redirect_to account_path
   end
-  
+
 end
