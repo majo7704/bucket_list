@@ -12,7 +12,7 @@ get 'styles/organisms'
 
 resources :sessions, only: [:new, :create, :destroy]
 
-resources :users do
+resources :users, only: [:new, :create, :edit, :update] do
   resources :goals
 end 
 
