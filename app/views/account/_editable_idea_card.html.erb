@@ -1,4 +1,4 @@
-<div class="card">
+<div id="idea-<%= idea.id%>" class="card">
   <div class="card__thumb">
     <%= link_to(idea_path(idea)) do %>
       <% if idea.photo_url.present? %>
