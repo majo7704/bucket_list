@@ -13,7 +13,7 @@
     </div>
   </div>
   <div class="card__footer">
-    <%= link_to(idea_path(idea), class: "btn delta", method: :delete) do %>
+    <%= link_to(idea_path(idea), class: "btn delta", method: :delete, remote: true) do %>
       <svg class="icon-delete" role="presentation">
         <use href="<%= image_path('icons/icons-defs.svg') %>#delete"></use>
       </svg>
