@@ -10,3 +10,6 @@ test3 = User.create! email: 'test3@example.com', password: 'password', name: 'te
   Idea.create! title: "Idea for #{test3.name} #{i} ", user: test3
 end
 
+admin.goals << test1.ideas.first
+admin.goals << test2.ideas.first
+admin.goals << test3.ideas.first
