@@ -28,8 +28,8 @@
                   <%= hidden_field_tag('idea_id', @idea.id) %>
                     <%= button_tag(class: 'btn delta', :type=> 'submit', disabled: @disable_add_goal) do %>
                       <svg class="icon-heart icon--sm" role="presentation">
-                      <!-- <use xlink:href="images/icons-defs.svg#heart"></use> -->
-                      </svg>
+            <use href="<%= image_path('icons/icons-defs.svg') %>#pluss"></use>
+          </svg>
                       Add
                     <% end %>
                 <% end %>
