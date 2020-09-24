@@ -18,6 +18,7 @@ end
 
 resources :ideas do
   resources :comments
+  resources :photos
 end 
 
 get 'account', to: 'account#edit'
