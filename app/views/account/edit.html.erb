@@ -22,6 +22,10 @@
         <%= form.label(:avatar_url, class: "input-group__label") %>
         <%= form.text_field(:avatar_url,class:'input-group__field') %> 
       </div>
+      <div class="input-group input-group--horizontal">
+        <%= form.label(:avatar, class: 'input-group__label') %>
+        <%= form.file_field(:avatar, class: 'input-group__field') %>
+      </div>
       <div class="prompt">
         <a class="prompt__cancel" href="#cancel">Cancel</a>
         <%= form.submit('Update account', class:"btn btn--primary prompt__confirm") %> 
