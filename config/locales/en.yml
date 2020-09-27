@@ -12,5 +12,7 @@ en:
         avatar: 'Avatar'
   search:
     button: 'Search'
-    button: 'Submit'
     placeholder: 'e.g. Swimming with dolphins'
+  home:
+    h1: 'Get inspired. Create your bucket list. Share.'
+    h2: 'Some ideas'

@@ -10,3 +10,9 @@ fr:
         email: 'Email'
         name: 'Nom et Prénom'
         avatar: 'Avatar'
+  search:
+    button: 'Rechercher'
+    placeholder: 'par exemple, nager avec les dauphines'
+  home:
+    h1: 'Être inspiré. Créez votre liste de seaux. Partager.'
+    h2: 'Quelques idées'

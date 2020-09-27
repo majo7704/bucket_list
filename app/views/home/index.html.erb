@@ -1,20 +1,20 @@
 <main>
-      <div class="masthead">
-        <div class="content-wrapper">
-          <h1>Get inspired. Create your bucket list. Share.</h1>
-          <form method="get" action=" ">
-            <div class="input-inline">
-              <label class="input-group__label" for="banner-search-input">Inspire me</label>
-              <div class="input-row">
-                <input id="banner-search-input" class="input-row__field" type="text" name="search" placeholder="e.g. Swimming with dolphins">
-                <button class="btn btn--inline" type="submit">Search</button>
-              </div>
+  <div class="masthead">
+    <div class="content-wrapper">
+      <h1><%= translate('home.h1')%></h1>
+        <%= form_tag(ideas_path, method: 'GET', class: 'global-search') do %>
+          <div class="input-inline">
+            <label class="input-group__label sr-only" for="q">Looking for inspiration?</label>
+            <div class="input-row">
+              <%= text_field_tag('q', nil, class: 'input-row__field', placeholder: translate('search.placeholder')) %>
+              <%= button_tag(translate('search.button'), class: 'btn btn--inline btn--primary') %>
             </div>
-          </form>
+          </div>
+        <% end %>
         </div>
       </div>
       <div class="content-wrapper">
-        <h2>Some ideas</h2>
+        <h2><%= translate('home.h2')%></h2>
         <ul class="bare-list float-grid css-grid">
         <% @ideas.each do |idea| %>
           <li>
