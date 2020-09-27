@@ -8,7 +8,7 @@
         <li><a href="#nolink">Following</a></li>
       </ul>
     </nav>
-    <h1>Account details <img src="<%= current_user.avatar%>" class="avatar"/></h1>
+    <h1>Account details <img src="<%= current_user.avatar_url %>" class="avatar"/></h1>
     
     <%= form_for(current_user, url: account_path, html: {class: "form--inpage"}) do |form| %>
       <div class="input-group input-group--horizontal">
@@ -18,10 +18,6 @@
       <div class="input-group input-group--horizontal">
         <%= form.label(:name, class: "input-group__label") %>
         <%= form.text_field(:name, class:'input-group__field', placeholder:"E.g. Diana Prince") %> 
-      </div>
-      <div class="input-group input-group--horizontal">
-        <%= form.label(:avatar_url, class: "input-group__label") %>
-        <%= form.text_field(:avatar_url,class:'input-group__field') %> 
       </div>
       <div class="input-group input-group--horizontal">
         <%= form.label(:avatar, class: 'input-group__label') %>
