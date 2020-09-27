@@ -13,6 +13,8 @@ class User < ApplicationRecord
 
   before_validation :downcase_email
 
+  mount_uploader :avatar, AvatarUploader
+
   private
 
   def downcase_email
