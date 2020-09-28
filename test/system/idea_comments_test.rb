@@ -11,11 +11,11 @@ test 'adding a Comment to the idea' do
     visit(new_session_path)
     fill_in('Email', with: user.email)
     fill_in('Password', with: user.password)
-    click_on('Log in')
+    click_on('Log in', match: :first)
 
     visit idea_path(idea)
 
-    fill_in('Add a comment', with: 'I love your idea')
+    fill_in('comment_body', with: 'I love your idea')
     click_on('Post', match: :first)
     assert_equal idea_path(idea), page.current_path
     assert page.has_content?('I love your idea')

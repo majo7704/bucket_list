@@ -58,7 +58,7 @@ class IdeasTest < ApplicationSystemTestCase
 
     visit(root_path)
 
-    fill_in('q', with:'Mont')
+    fill_in('q', match: :first, with:'Mont')
     click_on('Search', match: :first)
 
     assert current_path.include?(ideas_path)

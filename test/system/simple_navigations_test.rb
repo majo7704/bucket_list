@@ -2,15 +2,15 @@ require "application_system_test_case"
 
 class SimpleNavigationsTest < ApplicationSystemTestCase
 test 'search term is diplayed' do
-  visit('http://localhost:3000/')
+  visit(root_path)
   assert page.has_content?('Bucket List')
-  fill_in('q', :with=>'Spain').send_keys(:return)
+  fill_in('q', match: :first, :with=>'Spain').send_keys(:return)
   assert has_content?('Spain')
   assert current_url.include?('q=Spain')
 end
 
   test "style guide navigation" do
-    visit ('http://localhost:3000/')
+    visit (root_path)
     click_on('Style Guide')
     assert page.has_content?('Atoms')
     assert page.has_content?('Molecules')

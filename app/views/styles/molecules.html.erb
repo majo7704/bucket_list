@@ -128,9 +128,9 @@
         <div class="card__footer">
           <div>
             <button class="card__btn card__like delta" data-like="see-the-northern-lights">
-              <svg class="icon-heart" role="presentation">
-                <use xlink:href="images/icons-defs.svg#heart"></use>
-              </svg>
+              <svg class="icon-heart icon--sm" role="presentation">
+            <use href="<%= image_path('icons/icons-defs.svg') %>#like"></use>
+          </svg>
               Like
             </button>
           </div>
@@ -140,9 +140,9 @@
         <div class="card__footer">
           <div>
             <button class="card__btn card__like delta" data-like="see-the-northern-lights">
-              <svg class="icon-heart icon-heart--liked" role="presentation">
-                <use xlink:href="images/icons-defs.svg#heart"></use>
-              </svg>
+              <svg class="icon-heart icon--sm" role="presentation">
+            <use href="<%= image_path('icons/icons-defs.svg') %>#liked"></use>
+          </svg>
               Liked
             </button>
           </div>
