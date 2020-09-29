@@ -2,9 +2,9 @@
     <div>
       <nav>
         <ul class="sub-navigation">
-          <li><%= render(partial:'sub_nav_item',locals:{current: false, title:'Atoms', uri:'/styles/atoms'}) %> </li>
-            <li><%= render(partial:'sub_nav_item', locals:{current:false, title:'Molecules',uri:'/styles/molecules'}) %> </li>
-            <li><%= render(partial:'sub_nav_item', locals:{current: true, title:'Organisms', uri:"/styles/organisms"}) %> </li>
+          <li><%= render(partial:'sub_nav_item',locals:{current: false, title:'Atoms', uri:'/en/styles/atoms'}) %> </li>
+            <li><%= render(partial:'sub_nav_item', locals:{current:false, title:'Molecules',uri:'/en/styles/molecules'}) %> </li>
+            <li><%= render(partial:'sub_nav_item', locals:{current: true, title:'Organisms', uri:"/en/styles/organisms"}) %> </li>
           <li><a href="templates.html">Templates</a></li>
           <li><a href="#pages">Pages</a></li>
         </ul>
@@ -63,9 +63,34 @@
         <% ["See the Northern Lights", "Swim with Dolphines", "Drive a Sport Car", "Dance like there is no tomorrow", nil].each do |title| %>
           <% if(title.present?) %>
           <li>
-            <%= render(partial: 'idea_card', locals:{card_title:title, done_count: 24, photo_url: 'http://fpoimg.com/255x170', idea: 1}) %>
-          </li>
-          <% end %>
+          <div class="card">
+                <div class="card__thumb">
+                  <a href="ideas/northern-lights.html">
+                    <img src="http://fpoimg.com/255x170"
+                         alt="Northern lights over mountain covered in snow">
+                  </a>
+                  <div class="card__intro">
+                    <h4 class="card__title"><%= title%></h4>
+                    <span>1,598 have done this</span>
+                  </div>
+                </div>
+                <div class="card__footer">
+                  <button class="card__btn card__like delta" data-like="see-the-northern-lights">
+                    <svg class="icon-heart" role="presentation">
+                      <use xlink:href="images/icons-defs.svg#heart"></use>
+                    </svg>
+                    Like
+                  </button>
+                  <button class="card__btn card__add delta" data-addGoal="see-the-northern-lights">
+                    <svg class="icon-pluss" role="presentation">
+                      <use xlink:href="images/icons-defs.svg#pluss"></use>
+                    </svg>
+                    Add Goal
+                  </button>
+                </div>
+              </div>
+            </li>
+          <% end %> 
         <% end %>
           
         </ul>

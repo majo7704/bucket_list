@@ -8,7 +8,7 @@
         <li><a href="#nolink">Following</a></li>
       </ul>
     </nav>
-    <h1>Account details <img src="<%= current_user.avatar_url %>" class="avatar"/></h1>
+    <h1>Account details <img src="<%= current_user.avatar_url%>" class="avatar"/></h1>
     
     <%= form_for(current_user, url: account_path, html: {class: "form--inpage"}) do |form| %>
       <div class="input-group input-group--horizontal">

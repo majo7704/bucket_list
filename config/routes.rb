@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to:'home#index'
+  
   scope '/:locale' do
   
     root to:'home#index'
@@ -8,7 +9,7 @@ Rails.application.routes.draw do
 
     get 'styles/atoms'
 
-    get 'styles/molecules'
+    get 'styles/molecules' 
 
     get 'styles/organisms'
 

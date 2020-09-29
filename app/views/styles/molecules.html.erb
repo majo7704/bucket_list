@@ -3,7 +3,7 @@
       <nav>
         <ul class="sub-navigation">
           <li><%= render(partial:'sub_nav_item',locals:{current: false, title:'Atoms', uri:styles_atoms_path}) %> </li>
-            <li><%= render(partial:'sub_nav_item', locals:{current:true, title:'Molecules',uri:'/styles/molecules'}) %> </li>
+            <li><%= render(partial:'sub_nav_item', locals:{current:true, title:'Molecules',uri:'en/styles/molecules'}) %> </li>
             <li><%= render(partial:'sub_nav_item', locals:{current: false, title:'Organisms', uri:styles_organisms_path}) %> </li>
           <li><a href="templates.html">Templates</a></li>
           <li><a href="#pages">Pages</a></li>
@@ -36,7 +36,36 @@
     </div>
     <section class="sg-section" id="card">
       <h2>01. Card</h2>
-      <%= render(partial: 'idea_card', locals:{card_title:'Watch the Northern Lights', done_count:24, photo_url: 'http://fpoimg.com/255x170', idea: 1}) %>
+      <ul class="bare-list float-grid css-grid">
+      <li>
+      <div class="card">
+                <div class="card__thumb">
+                  <a href="ideas/northern-lights.html">
+                    <img src="http://fpoimg.com/255x170"
+                         alt="Northern lights over mountain covered in snow">
+                  </a>
+                  <div class="card__intro">
+                    <h4 class="card__title"> Watch the northern lights</h4>
+                    <span>1,598 have done this</span>
+                  </div>
+                </div>
+                <div class="card__footer">
+                  <button class="card__btn card__like delta" data-like="see-the-northern-lights">
+                    <svg class="icon-heart" role="presentation">
+                      <use xlink:href="images/icons-defs.svg#heart"></use>
+                    </svg>
+                    Like
+                  </button>
+                  <button class="card__btn card__add delta" data-addGoal="see-the-northern-lights">
+                    <svg class="icon-pluss" role="presentation">
+                      <use xlink:href="images/icons-defs.svg#pluss"></use>
+                    </svg>
+                    Add Goal
+                  </button>
+                </div>
+              </div>
+              </li>
+              </ul>
     </section>
     <section class="sg-section" id="logo">
       <h2>02. Logo</h2>
